@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="cartstyle.css">
+</head>
+
+<body>
+    <div
+        style="width: 70%;height:450px;background-color:rgb(180, 175, 175);display: flex;text-align: center;margin: auto;margin-top: 30px;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;">
+        <div style="width: 40%;margin-top: 30px;">
+            <img src="774-7741439_shopping-cart-png-orange.png" alt="" style="width: 30%;">
+            <h2 style="font-size: 35px;">Daily Needs</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur iusto neque tenetur necessitatibus
+                et autem! Excepturi quos dolores rem ipsa? Laborum velit est quam quidem magnam non architecto minima
+                dolorum.</p>
+        </div>
+        <div style="margin-top: 50px;margin-left: 150px;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Qty</th>
+                        <th>Item Name</th>
+                        <th>Price</th>
+                        
+                    </tr>
+                </thead>
+
+                <tr>
+                    <td><input type="number" name="" value="0" id="qt1"></td>
+                    <td><select name="" id="list">
+                            <option value="" disabled selected>Fruits</option>
+                            <option value="Book" id="op1">Apple</option>
+                            <option value="Bag" id="op2">Mango</option>
+                            <option value="Pen" id="op3">Orange</option>
+                            <option value="Pencil" id="op4">Grapes</option>
+                        </select></td>
+                    <!-- <td><input type="number" name="" id="p1" class="inp2" onchange="Total()"></td> -->
+                    
+                </tr><br>
+                <!-- <tr>
+                    <td>
+                    <input type="number" name="" id="qt2"value="0"  id="qt2"></td>
+                   <td> <select name="" id="">
+                        <option value="" disabled selected>Apparel</option>
+                        <option value="Shirt">Shirt</option>
+                        <option value="Pant">Pant</option>
+                        <option value="Shue">Shue</option>
+                        <option value="T-shirt">T-shirt</option>
+                    </select></td>
+                   <td><input type="number" name="" id="p2" class="inp2" onchange="Total()"></td> 
+                   <td><span id="tc2"></span></td>
+                 </tr>
+                 <tr>
+                    <td>
+                    <input type="number" name="" id="qt3" value="0" id="qt3"></td>
+                   <td> <select name="" id="">
+                        <option value="" disabled selected>Friuts</option>
+                        <option value="Apple">Apple</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Grapes">Grapes</option>
+                        <option value="Mango">Mango</option>
+                    </select></td>
+                   <td><input type="number" name="" id="p3" class="inp2" onchange="Total()"></td> 
+                   <td><span id="tc3"></span></td>
+                 </tr>
+                 <tr>
+                    <td>
+                    <input type="number" name="" id="qt4"value="0" id="qt4"></td>
+                   <td> <select name="" id="">
+                        <option value="" disabled selected>
+                            Essential Grains</option>
+                        <option value="Rice">Rice</option>
+                        <option value="Wheat">Wheat</option>
+                        <option value="Sugar">Sugar</option>
+                        <option value="Salt">Salt</option>
+                    </select></td>
+                   <td><input type="number" name="" id="p4" class="inp2" onchange="Total()"></td> 
+                   <td><span id="tc4"></span></td>
+
+                 </tr> -->
+
+            </table>
+
+        </div>
+
+
+
+        <button class="Btn1" onclick="AddToc()">Add to Cart</button>
+       
+    </div>
+
+    <div
+        style="width: 50%;height:430px;background-color:rgb(180, 175, 175);text-align: center;margin: auto;margin-top: 30px;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);padding: 20px;">
+        <table>
+            <tr>
+                <th>Quanty</th>
+                <th>Item Name</th>
+                <th>Unit Price</th>
+                
+            </tr>
+            
+            <tr id="" >
+                <td id="d1"></td>
+                <td id="d2"></td>
+                <td id="d3"></td>
+                <button>Delete</button>
+            </tr>
+        </table>
+    </div>
+
+
+
+
+
+    <script>
+        // function Total()
+        // {
+        //     q1=document.getElementById("qt1").value;
+        //     p1=document.getElementById("p1").value;
+        //     document.getElementById("tc1").innerHTML=q1*p1;
+
+        //     q2=document.getElementById("qt2").value;
+        //     p2=document.getElementById("p2").value;
+        //     document.getElementById("tc2").innerHTML=q2*p2;
+
+        //     q3=document.getElementById("qt3").value;
+        //     p3=document.getElementById("p3").value;
+        //     document.getElementById("tc3").innerHTML=q3*p3;
+
+        //     q4=document.getElementById("qt4").value;
+        //     p4=document.getElementById("p4").value;
+        //     document.getElementById("tc4").innerHTML=q4*p4;
+
+        //     totalamt=Number.parseInt(document.getElementById("tc1").value)
+        //     document.getElementById("tc2").value+document.getElementById("tc3").value+document.getElementById("tc4").value;
+
+        //     document.getElementById("ttlc").innerHTML=totalamt;
+        // }
+        const ShCart = new Map([
+            [1, { item: 'Apple', price: 100 }],
+            [2, { item: 'Mango', price: 80 }],
+            [3, { item: 'Orange', price: 60 }],
+            [4, { item: 'Grapes', price: 70 }]
+        ]);
+        ShCart.forEach(function (x, y) {
+
+
+            // document.getElementById('p1').value = x.price
+
+            // console.log(x.item);
+        });
+
+        function AddToc() {
+            ShCart.forEach(function (x, y) {
+                q=document.getElementById("qt1").value;
+                p=document.getElementById('p1').value;
+                // document.getElementById('qt1').value=document.getElementById('list').value
+                document.getElementById("d1").innerHTML=q;
+                document.getElementById('d2').innerHTML=x.item;
+                document.getElementById('d3').innerHTML=x.price
+            });
+
+
+
+        }
+
+    </script>
+</body>
+
+</html>

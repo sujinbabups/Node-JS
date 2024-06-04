@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizApp</title>
+</head>
+<style>
+   button{
+      margin-left: 20px;
+
+   }
+</style>
+<body>
+    <p id="Qstn"></p><br>
+    <div id="QntnC">
+    1.<input type="radio" name="" value="" ><label for="" id="op1"></label><br>
+    2.<input type="radio" name="" ><label for="" id="op2"></label><br>
+    3.<input type="radio" name=""><label for="" id="op3"></label><br>
+    4.<input type="radio" name="" ><label for="" id="op4"></label><br><br>
+</div>
+
+
+   <button onclick="PrevQn()">Previous</button><button onclick="NextQn()">Next</button><button>Submit</button>
+
+
+
+   <script>
+    const Questions=[
+        {
+        qn:" Which of the following choices is a type of blockchain ?",
+        options:["Restricted blockchain network","Private blockchain network","Constraint blockchain network","Open blockchain network"],
+        ans: 2
+         },
+         {
+            qn:"What are the important traits of blockchain technology?",
+            options:["Decentralization","Immutability","Transparency","All of the above"],
+            ans:2
+        },
+
+
+
+        {
+        qn:"What can you find in the block of a blockchain?",
+        options:["Timestamp ","Transaction data","Hash point","All of the above"],
+        ans :4
+        
+        },  {
+        qn:" Which of the following choices is a type of blockchain ?",
+        options:["Restricted blockchain network","Private blockchain network","Constraint blockchain network","Open blockchain network"],
+        ans: 2
+         }
+ ];
+ 
+ function QustArea(c)
+ {
+
+
+document.getElementById("Qstn").innerHTML=Questions[c].qn;
+document.getElementById("op1").innerHTML=Questions[c].options[0];
+document.getElementById("op2").innerHTML=Questions[c].options[1];
+document.getElementById("op3").innerHTML=Questions[c].options[2];
+document.getElementById("op4").innerHTML=Questions[c].options[3];
+
+
+
+ }
+ function NextQn()
+ {
+    
+    // input.checked=false;
+    c=c+1;
+    QustArea(c);
+    
+     
+ }
+ function PrevQn(){
+    c=c-1;
+    QustArea(c)
+ }
+
+
+ function AnsCheck()
+ {
+
+
+ }
+ var c=0;
+ QustArea(c);
+ NextQn();
+ PrevQn();
+   </script>
+    
+</body>
+</html>

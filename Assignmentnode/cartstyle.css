@@ -1,0 +1,61 @@
+body{
+    background-color: rgb(233, 223, 223);
+    font-family:'Times New Roman', Times, serif;
+}
+select{
+    width: 220px;
+    height: 40px;
+    font-size: 20px;
+}
+input{
+    height: 35px;
+    font-size: 20px;
+    width: 30px;
+}
+.inp2{
+    width: 70px;
+}
+th{
+    font-size: 23px;
+}
+p{
+    font-size: 18px;
+}
+span{
+    font-size: 20px;
+}
+.Btn1{
+    height: 40px;
+    width: 160px;
+    margin-top: 290px;
+    background-color: orangered;
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-left: -30px;
+}
+.Btn1:hover{
+    border: black 2px solid;
+    background-color: green;
+}
+.tl{
+    margin-top: 300px;
+    margin-left: -480px;
+}
+#ttlc{
+    margin-top: 300px;
+    margin-left: 20px;
+
+}
+table{
+    border: 1px solid black;
+    border-spacing: 30px;
+    border-collapse: separate;
+
+}
+td{
+    border: 1px solid black;
+    cell
+}
