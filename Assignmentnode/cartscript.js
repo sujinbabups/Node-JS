@@ -1,78 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
-    <link rel="stylesheet" href="cartstyle.css">
-    
-</head>
-
-<body>
-    <div style="width: 70%;height:450px;background-color:rgb(180, 175, 175);display: flex;text-align: center;margin: auto;margin-top: 30px;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;">
-        <div style="width: 40%;margin-top: 30px;">
-            <img src="774-7741439_shopping-cart-png-orange.png" alt="" style="width: 30%;">
-            <h2 style="font-size: 35px;">Daily Needs</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur iusto neque tenetur necessitatibus
-                et autem! Excepturi quos dolores rem ipsa? Laborum velit est quam quidem magnam non architecto minima
-                dolorum.</p>
-        </div>
-        <div style="margin-top: 50px;margin-left: 150px;">
-            <table >
-                <thead>
-                    <tr>
-                        <th>Qty</th>
-                        <th>Item Name</th>
-
-
-                    </tr>
-                </thead>
-
-                <tr>
-                    <td><input type="number" name="" value="0" id="qty"></td>
-                    <td><select name="" id="fruitlist">
-
-                        </select></td>
-
-
-                </tr><br>
-
-
-            </table>
-
-        </div>
-
-
-
-        <button class="Btn1" onclick="addItem()">Add to Cart</button>
-
-    </div>
-
-    <div style="width: 50%;height:430px;background-color:rgb(180, 175, 175);text-align: center;margin: auto;margin-top: 30px;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);padding: 20px;">
-        <table id="cartTable">
-            <thead>
-                <th>Quanty</th>
-                <th>Item Name</th>
-                <th>Unit Price</th>
-
-            </thead>
-
-           <tbody>
-            
-           </tbody>
-        </table>
-    </div>
-
-
-
-    <script>
-        const items = new Map([
+const items = new Map([
     ['Apple', 120],
-    ['Orange', 50],
-    ['Strawberry', 200],
-    ['Grapes', 150],
-    ['Mango', 70]
+    ['Banana', 50],
+    ['Cherry', 200],
+    ['Date', 350],
+    ['Elderberry', 340]
 ]);
 
 // Cart object to keep track of selected items and quantities
@@ -83,7 +14,7 @@ const fruitlist = document.getElementById('fruitlist');
 items.forEach((price, item) => {
     const option = document.createElement('option');
     option.value = item;
-    option.textContent = `${item} - (${price})`;
+    option.textContent = `${item} - (${price}))`;
     fruitlist.appendChild(option);
 });
 
@@ -142,9 +73,3 @@ function updateCartTable() {
         cell5.appendChild(deleteButton);
     });
 }
-
-    </script>
-
-</body>
-
-</html>
