@@ -1,17 +1,42 @@
-let str=("JavaScript is a high-level programming language is that follows the ECMAScript standard");
-// console.log(str)
+const readline = require('readline');
+function removePunctuation(text) {
+    return text.replace(/[.,<>'"`~]/g, "").replace(/\s{2,}/g, " ");
+}
 
-txt="is"
-strarray=str.split(" ");
-l=strarray.length;
-var c=0;
-for(i=0;i<l;i++)
-    {
-        if(strarray[i]==txt)
-            {
-                c++;
-            }
+function wordFrequency(text) {
+    const words = text.toLowerCase().split(" ");
+    const wordMap = new Map();
 
-    }
-    console.log(txt+` is ${c} times in the text`);
+    words.forEach(word => {
+        if (wordMap.has(word)) {
+            wordMap.set(word, wordMap.get(word) + 1);
+        } else {
+            wordMap.set(word, 1);
+        }
+    });
+    const sortedWordArray = [...wordMap.entries()].sort((a, b) => b[1] - a[1]);
+    const sortedWordMap = new Map(sortedWordArray);
 
+    return sortedWordMap;
+}
+
+function displayWordFrequency(wordMap) {
+    wordMap.forEach((count, word) => {
+        console.log(`${word}: ${count}`);
+    });
+}
+
+
+
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Enter a text string: ', (input) => {
+    const cleanedText = removePunctuation(input);
+    const wordMap = wordFrequency(cleanedText);
+    displayWordFrequency(wordMap);
+    rl.close();
+});
