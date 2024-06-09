@@ -31,15 +31,15 @@
             <div id="recipeList"></div>
         </section>
         <section>
-            <h2>Favorites</h2>
+            <h2>Favourites</h2>
             <div id="favoritesList"></div>
         </section>
     </div>
     <script>
         const recipes = [
-            { name: 'noodles', ingredients: ['noodles', 'soy sauce', 'cheese'], instructions: 'Stir-fried noodles: Cook noodles, stir-fry with vegetables, soy sauce, and sesame oil until tender' },
-            { name: 'Salad', ingredients: ['tomatoes', 'cucumbers', 'onions'], instructions: 'Chop lettuce, tomatoes, cucumbers, and onions; toss with olive oil, lemon juice, salt, and pepper' },
-            { name: 'Omelet', ingredients: ['eggs', 'pepper', 'salt'], instructions: 'Beat eggs, add salt and pepper, cook in a pan with butter, fold and serve.' },
+            { name1: 'noodles', ingredients: ['noodles', 'soy sauce', 'cheese'], instructions: 'Stir-fried noodles: Cook noodles, stir-fry with vegetables, soy sauce, and sesame oil until tender' },
+            { name1: 'Salad', ingredients: ['tomatoes', 'cucumbers', 'onions'], instructions: 'Chop lettuce, tomatoes, cucumbers, and onions; toss with olive oil, lemon juice, salt, and pepper' },
+            { name1: 'Omelet', ingredients: ['eggs', 'pepper', 'salt'], instructions: 'Beat eggs, add salt and pepper, cook in a pan with butter, fold and serve.' },
         ];
 
         document.getElementById('searchForm').addEventListener('submit', function(e) {
@@ -61,10 +61,10 @@
                 const div = document.createElement('div');
                 div.classList.add('recipe');
                 div.innerHTML = `
-                    <h3>${recipe.name}</h3>
+                    <h3>${recipe.name1}</h3>
                     <p>Ingredients: ${recipe.ingredients.join(', ')}</p>
                     <p>Instructions: ${recipe.instructions}</p>
-                    <button onclick="${elementId === 'favoritesList' ? `removeFromFavorites('${recipe.name}')` : `saveToFavorites('${recipe.name}')`}">
+                    <button onclick="${elementId === 'favoritesList' ? `removeFromFavorites('${recipe.name1}')` : `saveToFavorites('${recipe.name1}')`}">
                         ${elementId === 'favoritesList' ? 'Remove from Favorites' : 'Save to Favorites'}
                     </button>
                 `;
@@ -72,19 +72,19 @@
             });
         }
 
-        function saveToFavorites(name) {
+        function saveToFavorites(name1) {
             let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-            const recipe = recipes.find(r => r.name === name);
-            if (!favorites.some(fav => fav.name === recipe.name)) {
+            const recipe = recipes.find(r => r.name1 === name1);
+            if (!favorites.some(fav => fav.name1 === recipe.name1)) {
                 favorites.push(recipe);
                 localStorage.setItem('favorites', JSON.stringify(favorites));
                 loadFavorites();
             }
         }
 
-        function removeFromFavorites(name) {
+        function removeFromFavorites(name1) {
             let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-            favorites = favorites.filter(fav => fav.name !== name);
+            favorites = favorites.filter(fav => fav.name1 !== name1);
             localStorage.setItem('favorites', JSON.stringify(favorites));
             loadFavorites();
         }
